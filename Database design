@@ -1,0 +1,36 @@
+Database Design for Carbon Equity Tracker  
+
+The Carbon Equity Tracker uses three databases to organize information effectively. Each database contains tables designed for specific purposes.  
+This project uses 3 different databases.
+1. Database: cet_login  
+   Purpose: Manages user authentication by securely storing login credentials.  
+   Table:  
+   - Logincred  
+     - username: A unique name for each user (Primary Key).  
+     - password: The user’s password, stored securely.  
+
+2. Database: cet_user  
+   Purpose: Stores individual user data, including daily activities and carbon footprint.  
+   Table:  
+   - User_data  
+     - user_id: A unique identifier for each user (Primary Key).  
+     - daily_commute: Distance traveled daily by the user (in kilometers).  
+     - waste_generated: Amount of waste generated daily (in kg).  
+     - country: The user's country (for region-specific emissions).  
+     - total_emissions: The calculated carbon footprint for the user.  
+
+3. Database: cet_industry  
+   Purpose: Stores data for industries to calculate their emissions.  
+   Table:  
+   - Industry_data  
+     - industry_id: A unique identifier for each industry (Primary Key).  
+     - energy_consumed: Total energy used by the industry (in kilowatt-hours).  
+     - materials_used: Amount of raw materials consumed (in tons).  
+     - total_emissions: The calculated carbon footprint for the industry.  
+
+Key Features of the Design:  
+- Logical separation of data into different databases for better management.  
+- Relationships between tables are secured using foreign keys, e.g., linking user_id in cet_user with username in cet_login.  
+- Indexes are implemented to improve the performance of frequently used queries.  
+
+This design ensures efficient, secure, and user-friendly data handling.
